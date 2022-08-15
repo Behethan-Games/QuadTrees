@@ -88,12 +88,12 @@ qtree.GetObjects(new RectangleF(9,9,20,20), list);                             /
 
 var rect = new RectangleF(9, 9, 20, 20);
 var count = qtree.ObjectCount(rect);
-Span<QTreeObject> array = stackalloc QTreeObjec[count];           // Local array of the structs being stored in the quadtree
+Span<QTreeObject> array = stackalloc QTreeObject[count];           // Local array of the structs being stored in the quadtree
 qtree.GetObjects(rect, array);                                    // Copy structs inside the rectangle to the local array 
 
 var payload = new Payload{ counter = 0; }
-qtree.GetObjects(new RectangleF(9, 9, 20, 20), (ref obj) => { // logic });                            // Executes a lambda for each obj inside the rectangle
-qtree.GetObjects(new RectangleF(9, 9, 20, 20), ref payload, (ref payload, ref obj) => payload++);     // Same as above, but with passed payload to pass stuff into the lambda
+qtree.GetObjects(new RectangleF(9, 9, 20, 20), (ref QTreeObject obj) => { // logic });                            // Executes a lambda for each obj inside the rectangle
+qtree.GetObjects(new RectangleF(9, 9, 20, 20), ref payload, (ref Payload payload, ref QTreeObject obj) => payload++);     // Same as above, but with passed payload to pass stuff into the lambda
 ```
 
 ## License
