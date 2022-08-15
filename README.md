@@ -75,11 +75,11 @@ struct Payload{ public int counter; }
 
 QuadTreePointF<QTreeObject> qtree = new QuadTreePointF<QTreeObject>();
 qtree.AddRange(new List<QTreeObject>{
-	new QTreeObject(new PointF(10,10)),
-	new QTreeObject(new PointF(11,11)),
-	new QTreeObject(new PointF(12,12)),
-	new QTreeObject(new PointF(11,11)),
-	new QTreeObject(new PointF(-1000,1000))
+	new QTreeObject(1, new PointF(10,10)),
+	new QTreeObject(2, new PointF(11,11)),
+	new QTreeObject(3, new PointF(12,12)),
+	new QTreeObject(4, new PointF(11,11)),
+	new QTreeObject(5, new PointF(-1000,1000))
 });
 
 var amount = qtree.ObjectCount(new RectangleF(9,9,20,20));                     // Counts entities inside the range 
